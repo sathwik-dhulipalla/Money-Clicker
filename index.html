@@ -4,166 +4,160 @@
 <title>Money Clicker</title>
 
 <style>
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: #1e7a1e;
-    font-family: Arial, sans-serif;
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#1f7a1f;
+    color:white;
+    text-align:center;
 }
 
-/* HARD COVER FOR SCRATCH TOP BAR */
-.cover {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 120px;
-    width: 100%;
-    background: #145214;
-    z-index: 20;
+/* HEADER */
+
+header{
+    background:#145214;
+    padding:10px;
 }
 
-/* MARQUEE */
-marquee {
-    position: absolute;
-    top: 35px;
-    width: 100%;
-    background: #2e8b2e;
-    color: white;
-    font-size: 34px;
-    font-weight: bold;
-    padding: 8px 0;
+marquee{
+    font-size:32px;
+    font-weight:bold;
 }
 
-/* BUTTON BAR */
-.controls {
-    position: absolute;
-    top: 85px;
-    left: 0;
-    width: 100%;
-    padding: 8px;
-    background: #1b5e20;
-    z-index: 21;
+/* IMAGE */
+
+.money-img{
+    width:120px;
+    margin:10px;
 }
 
-button {
-    background: #0f3d0f;
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    margin-right: 10px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
+/* LIST */
+
+ul{
+    list-style-type:square;
+    width:300px;
+    margin:auto;
+    text-align:left;
 }
 
-button:hover {
-    background: #0b2c0b;
+/* TABLE */
+
+table{
+    margin:20px auto;
+    border-collapse:collapse;
 }
 
-/* GAME */
-.game {
-    position: absolute;
-    top: 140px;
-    width: 100%;
-    height: calc(100vh - 140px);
+td,th{
+    border:2px solid white;
+    padding:8px 14px;
 }
 
-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+/* GAME AREA */
+
+.game-wrapper{
+    width:100%;
+    height:500px;
+    overflow:hidden;
 }
 
-/* POPUPS */
-.popup {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.8);
-    z-index: 50;
-    justify-content: center;
-    align-items: center;
+.game-wrapper iframe{
+    position:relative;
+    top:-40px;
+    width:100%;
+    height:540px;
+    border:none;
 }
 
-.popup-box {
-    background: white;
-    padding: 20px;
-    width: 300px;
-    border-radius: 10px;
-    text-align: center;
+/* VIDEO */
+
+.video{
+    margin-top:20px;
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
-    padding: 5px 0;
-}
 </style>
 </head>
 
 <body>
 
-<!-- SCRATCH COVER -->
-<div class="cover">
-    <marquee>💰 MONEY CLICKER 💰 MONEY CLICKER 💰 MONEY CLICKER 💰</marquee>
+<header>
 
-    <div class="controls">
-        <button onclick="openLeaderboard()">Leaderboard</button>
-        <button onclick="openHelp()">Need Help?</button>
-    </div>
+<h1>💰 Money Clicker 💰</h1>
+<h2>Become the richest clicker!</h2>
+
+<marquee scrollamount="10">
+CLICK MONEY • GET RICH • BUY UPGRADES • CLICK MONEY • GET RICH
+</marquee>
+
+</header>
+
+<br>
+
+<img class="money-img"
+src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Dollar_sign.svg">
+
+<h2>How To Play</h2>
+
+<ul>
+<li>Click inside the game to earn money</li>
+<li>Buy upgrades to earn faster</li>
+<li>Try to reach the highest score</li>
+<li>Compete with your friends</li>
+</ul>
+
+<h2>Upgrade Shop</h2>
+
+<table>
+
+<tr>
+<th>Upgrade</th>
+<th>Cost</th>
+<th>Effect</th>
+</tr>
+
+<tr>
+<td>Better Mouse</td>
+<td>$50</td>
+<td>Double clicks</td>
+</tr>
+
+<tr>
+<td>Auto Clicker</td>
+<td>$200</td>
+<td>Automatic money</td>
+</tr>
+
+<tr>
+<td>Money Factory</td>
+<td>$1000</td>
+<td>Mass production</td>
+</tr>
+
+</table>
+
+<h2>The Game</h2>
+
+<div class="game-wrapper">
+
+<iframe
+src="https://scratch.mit.edu/projects/1268723038/embed"
+allowfullscreen>
+</iframe>
+
 </div>
 
-<!-- GAME -->
-<div class="game">
-    <iframe src="https://scratch.mit.edu/projects/1268723038/embed"></iframe>
+<h2>Clicker Game Tips</h2>
+
+<div class="video">
+
+<iframe
+width="420"
+height="240"
+src="https://www.youtube.com/embed/Aq5WXmQQooo"
+allowfullscreen>
+</iframe>
+
 </div>
-
-<!-- LEADERBOARD -->
-<div class="popup" id="leaderboard">
-    <div class="popup-box">
-        <h2>💰 Money Leaderboard</h2>
-        <div class="row"><span>John</span><span>3409 ∞</span></div>
-        <div class="row"><span>Mark</span><span>2046 ∞</span></div>
-        <div class="row"><span>Amy</span><span>1095 ∞</span></div>
-        <div class="row"><span>Ishaan</span><span>358 ∞</span></div>
-        <div class="row"><span>Arya</span><span>200 ∞</span></div>
-    </div>
-</div>
-
-<!-- HELP -->
-<div class="popup" id="help">
-    <div class="popup-box">
-        <iframe id="yt"
-            width="100%"
-            height="200"
-            allow="autoplay"
-            allowfullscreen>
-        </iframe>
-    </div>
-</div>
-
-<script>
-function openLeaderboard() {
-    const box = document.getElementById("leaderboard");
-    box.style.display = "flex";
-    setTimeout(() => box.style.display = "none", 10000);
-}
-
-function openHelp() {
-    const box = document.getElementById("help");
-    const vid = document.getElementById("yt");
-
-    vid.src = "https://www.youtube.com/embed/Aq5WXmQQooo?autoplay=1";
-    box.style.display = "flex";
-
-    setTimeout(() => {
-        vid.src = "";
-        box.style.display = "none";
-    }, 10000);
-}
-</script>
 
 </body>
 </html>
